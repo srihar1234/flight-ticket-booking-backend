@@ -2,6 +2,7 @@ const express = require("express");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -11,14 +12,14 @@ app.use(cors({
 
 
 const { MongoClient } = require('mongodb');
-const url = 'mongodb+srv://Hari:aPxVCb1J3qbBPket@cluster0.yow2osx.mongodb.net/';
+const url = process.env.DATABASE_URL;
 
 
 app.post("/orders",async(req,res)=>{
     try{
         const instance = new Razorpay({
-            key_id: 'rzp_test_H2dNtLFiIqoQui',
-            key_secret: 'hWvkYEMrO43SK7cehBHa0LRA',
+            key_id: process.env.KEY_ID,
+            key_secret: process.env.KEY_SECRET,
           });
           const amount = req.body.amount
           const options = {
