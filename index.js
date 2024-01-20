@@ -4,7 +4,7 @@ const app = express();
 const cors = require('cors');
 
 const { MongoClient } = require('mongodb');
-const url = 'mongodb+srv://Hari: aPxVCb1J3qbBPket@cluster0.yow2osx.mongodb.net/';
+const url = 'mongodb+srv://Hari:aPxVCb1J3qbBPket@cluster0.yow2osx.mongodb.net/';
 
 
 app.use(express.json());
